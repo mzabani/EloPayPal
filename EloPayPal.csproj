@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FDB71735-0CD5-490F-B069-34101DFAA728}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Elopayments</RootNamespace>
+    <AssemblyName>Elopayments</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Json.NET\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="PaypalConfiguration.cs" />
+    <Compile Include="PaypalReceiver.cs" />
+    <Compile Include="ResponseEnvelope.cs" />
+    <Compile Include="ChainedPayment.cs" />
+    <Compile Include="ElomenoReceiver.cs" />
+    <Compile Include="IPNComplete.cs" />
+    <Compile Include="InstructionAck.cs" />
+    <Compile Include="PaymentStatus.cs" />
+    <Compile Include="Validator.cs" />
+    <Compile Include="Exceptions\PaymentTimeoutException.cs" />
+    <Compile Include="PaymentMethod.cs" />
+    <Compile Include="PayResponse.cs" />
+    <Compile Include="PaymentPhase.cs" />
+    <Compile Include="FeesPayer.cs" />
+    <Compile Include="SimplePayment.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="NotificationReceived.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
