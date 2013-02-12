@@ -37,7 +37,8 @@ namespace Elopayments
 		/// <summary>
 		/// The payment is awaiting processing.
 		/// </summary>
-		Pending
+		Pending,
+
+		Refunded
 	}
 }
-

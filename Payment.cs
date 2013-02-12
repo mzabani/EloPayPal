@@ -20,7 +20,7 @@ namespace Elopayments.PayPal
 				throw new InvalidOperationException("Payment has already been created or paid!");
 			}
 			
-			Console.WriteLine(JsonConvert.SerializeObject(GetPaymentObject()));
+			//Console.WriteLine(JsonConvert.SerializeObject(GetPaymentObject()));
 
 			// Accept everything..
 			ServicePointManager.ServerCertificateValidationCallback = PaymentConfiguration.CertificateValidator;
@@ -32,13 +32,17 @@ namespace Elopayments.PayPal
 				{
 					using (Stream stream = response.GetResponseStream())
 					{
-						string data = new StreamReader(stream).ReadToEnd();
+						string data;
+						using (StreamReader reader = new StreamReader(stream))
+						{
+							data = reader.ReadToEnd();
+						}
 						
-						Console.WriteLine("Returned data:\n {0}", data);
+						//Console.WriteLine("Returned data:\n {0}", data);
 						
 						payResponse = JsonConvert.DeserializeObject<PayResponse>(data);
 						
-						Console.WriteLine("Serialized return data: {0}", JsonConvert.SerializeObject(payResponse));
+						//Console.WriteLine("Serialized return data: {0}", JsonConvert.SerializeObject(payResponse));
 						if (payResponse.responseEnvelope.ack == "Success")
 						{
 							this.Phase = PaymentPhase.Created;
@@ -47,15 +51,15 @@ namespace Elopayments.PayPal
 						else if (payResponse.responseEnvelope.ack == "Error" || payResponse.responseEnvelope.ack == "Failure")
 							return InstructionAck.Error;
 						else
-							return InstructionAck.UnknownError;
+							throw new UnknownServerResponseException(data);
 					}
 				}
 			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Exceção: {0}", e.ToString());
-				payResponse = null;
-				return InstructionAck.LocalError;
+			catch (WebException e) {
+				if (e.Status == WebExceptionStatus.Timeout)
+					throw new PaymentTimeoutException(e);
+				else
+					throw;
 			}
 		}
 	}

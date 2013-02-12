@@ -10,8 +10,8 @@ namespace Elopayments.PayPal
 		public string receiver_email { get; set; }
 		public string receiver_id { get; set; }
 		public string residence_country { get; set; }
-
-		public int test_ipn { get; set; }
+		
+		public int? test_ipn { get; set; }
 		public string transaction_subject { get; set; }
 		/// <summary>
 		/// Keep this ID to avoid processing the transaction twice.
@@ -21,9 +21,9 @@ namespace Elopayments.PayPal
 		/// Type of transaction.
 		/// </summary>
 		public string txn_type { get; set; }
-
+		
 		public string pay_key { get; set; }
-
+		
 		public string payer_email { get; set; }
 		public string payer_id { get; set; }
 		public string payer_status { get; set; }
@@ -36,7 +36,7 @@ namespace Elopayments.PayPal
 		public string address_status { get; set; }
 		public string address_street { get; set; }
 		public string address_zip { get; set; }
-
+		
 		/// <summary>
 		/// Your custom field.
 		/// </summary>
@@ -47,14 +47,14 @@ namespace Elopayments.PayPal
 		public string mc_currency { get; set; }
 		public string mc_fee { get; set; }
 		public string mc_gross { get; set; }
-		public DateTime payment_date { get; set; }
+		public DateTime? payment_date { get; set; }
 		public string payment_fee { get; set; }
 		public string payment_gross { get; set; }
 		/// <summary>
 		/// Status, which determines whether the transaction is complete.
 		/// </summary>
 		public string payment_status { get; set; }
-
+		
 		public PaymentStatus PaymentStatus {
 			get
 			{
@@ -62,15 +62,16 @@ namespace Elopayments.PayPal
 				return PaymentStatus.Completed;
 			}
 		}
-
+		
 		/// <summary>
 		/// Kind of payment.
 		/// </summary>
 		public string payment_type { get; set; }
 		public string protection_eligibility { get; set; }
-
+		
 		public int quantity { get; set; }
 		public string shipping { get; set; }
 		public string tax { get; set; }
 	}
 }
+

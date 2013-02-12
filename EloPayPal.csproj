@@ -44,7 +44,6 @@
     <Compile Include="ResponseEnvelope.cs" />
     <Compile Include="ChainedPayment.cs" />
     <Compile Include="ElomenoReceiver.cs" />
-    <Compile Include="IPNComplete.cs" />
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Validator.cs" />
@@ -56,6 +55,13 @@
     <Compile Include="SimplePayment.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="NotificationReceived.cs" />
+    <Compile Include="IPNs\PayIPN.cs" />
+    <Compile Include="IPNs\IPNComplete.cs" />
+    <Compile Include="IPNs\IPNTransaction.cs" />
+    <Compile Include="Exceptions\UnknownServerResponseException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="IPNs\" />
+  </ItemGroup>
 </Project>

@@ -13,14 +13,16 @@ namespace Elopayments.PayPal
 		private PaypalConfiguration configuration;
 
 		public bool Execute(string ipnContent, out string paypalAnswer) {
+			ServicePointManager.ServerCertificateValidationCallback = configuration.CertificateValidator;
+
 			WebRequest wr = WebRequest.Create(configuration.IPNReceivedUrl);
 			wr.Method = "POST";
+			//wr.ContentLength = ipnContent.Length;
 
 			using (Stream wrContentStream = wr.GetRequestStream())
 			{
 				using (StreamWriter wrContentWriter = new StreamWriter(wrContentStream))
 				{
-					wrContentWriter.Write("cmd=_notify-validate&");
 					wrContentWriter.Write(ipnContent);
 				}
 			}
