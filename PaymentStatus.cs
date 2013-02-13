@@ -39,6 +39,8 @@ namespace Elopayments
 		/// </summary>
 		Pending,
 
+		Reversed,
+
 		Refunded
 	}
 }
