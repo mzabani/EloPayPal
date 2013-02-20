@@ -15,7 +15,7 @@ namespace Elopayments.PayPal
 		private static IDictionary<PaypalConf, PaypalConfiguration> Configurations = new Dictionary<PaypalConf, PaypalConfiguration> {
 			{ PaypalConf.SandBox,
 				new PaypalConfiguration("elomen_1359672509_biz@yahoo.com.br",
-				                        "http://elomeno.com/error", "http://elomeno.com/Payments/Return",
+				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
 				                        "USD",
@@ -26,7 +26,7 @@ namespace Elopayments.PayPal
 
 			{ PaypalConf.Production,
 				new PaypalConfiguration("financeiro@elomeno.com",
-				                        "http://elomeno.com/error", "http://elomeno.com/Payments/Return",
+				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
 				                        "https://www.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
 				                        "https://ipnpb.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
 				                        "BRL",

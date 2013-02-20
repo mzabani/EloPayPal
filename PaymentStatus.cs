@@ -41,6 +41,11 @@ namespace Elopayments
 
 		Reversed,
 
-		Refunded
+		Refunded,
+
+		/// <summary>
+		/// The payment was forcefully expired by EloRoutine. THIS IS NOT A VALID STATUS FROM PAYPAL IPNS.
+		/// </summary>
+		Expired
 	}
 }
