@@ -59,6 +59,9 @@
     <Compile Include="IPNs\IPNComplete.cs" />
     <Compile Include="IPNs\IPNTransaction.cs" />
     <Compile Include="Exceptions\UnknownServerResponseException.cs" />
+    <Compile Include="IPNs\SellerIPN.cs" />
+    <Compile Include="FeesCalculator.cs" />
+    <Compile Include="MoneyUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -24,20 +24,41 @@ namespace Elopayments.PayPal
 
 		protected override object GetPaymentObject()
 		{
-			return new {
-				actionType = "PAY",
-				currencyCode = PaymentConfiguration.Currency,
-				receiverList = new {
-					receiver = new[] { Receiver }
-				},
-				ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
-				returnUrl = PaymentConfiguration.PaymentSuccessUrl,
-				cancelUrl = PaymentConfiguration.PaymentErrorUrl,
-				requestEnvelope = new {
-					errorLanguage = "en_US", // Only en_US is supported
-					detailLevel = "ReturnAll"
-				}
-			};
+			if (TrackingId != null)
+			{
+				return new {
+					actionType = "PAY",
+					currencyCode = PaymentConfiguration.Currency,
+					receiverList = new {
+						receiver = new[] { Receiver }
+					},
+					ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
+					returnUrl = PaymentConfiguration.PaymentSuccessUrl,
+					cancelUrl = PaymentConfiguration.PaymentErrorUrl,
+					requestEnvelope = new {
+						errorLanguage = "en_US", // Only en_US is supported
+						detailLevel = "ReturnAll"
+					},
+					trackingID = TrackingId
+				};
+			}
+			else
+			{
+				return new {
+					actionType = "PAY",
+					currencyCode = PaymentConfiguration.Currency,
+					receiverList = new {
+						receiver = new[] { Receiver }
+					},
+					ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
+					returnUrl = PaymentConfiguration.PaymentSuccessUrl,
+					cancelUrl = PaymentConfiguration.PaymentErrorUrl,
+					requestEnvelope = new {
+						errorLanguage = "en_US", // Only en_US is supported
+						detailLevel = "ReturnAll"
+					}
+				};
+			}
 		}
 		
 		public SimplePayment(PaypalConfiguration conf)

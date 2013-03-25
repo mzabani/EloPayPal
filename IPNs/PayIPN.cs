@@ -6,6 +6,11 @@ namespace Elopayments.PayPal
 {
 	public class PayIPN
 	{
+		/// <summary>
+		/// If set, this is not a PayIPN, but probably a <see cref="SellerIPN"/>.
+		/// </summary>
+		public string txn_id { get; set; }
+
 		public DateTime? payment_request_date { get; set; }
 		public string return_url { get; set; }
 		public string fees_payer { get; set; }

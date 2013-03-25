@@ -13,6 +13,7 @@ namespace Elopayments.PayPal
 		protected PaypalConfiguration PaymentConfiguration;
 		protected abstract object GetPaymentObject();
 
+		public string TrackingId { get; set; }
 		public PaymentPhase Phase { get; protected set; }
 		public InstructionAck Execute(out PayResponse payResponse) {
 			if (Phase != PaymentPhase.NothingDone)
@@ -30,10 +31,10 @@ namespace Elopayments.PayPal
 			{
 				using (WebResponse response = wr.GetResponse())
 				{
-					using (Stream stream = response.GetResponseStream())
+					using (Stream responseStream = response.GetResponseStream())
 					{
 						string data;
-						using (StreamReader reader = new StreamReader(stream))
+						using (StreamReader reader = new StreamReader(responseStream))
 						{
 							data = reader.ReadToEnd();
 						}
