@@ -46,6 +46,7 @@ namespace Elopayments.PayPal
 
 			// Just to be certain
 			attemptValue -= .01M;
+
 			while (attemptValue - GetTaxesValue(attemptValue) != valueWithoutTaxes)
 				attemptValue += .01M;
 

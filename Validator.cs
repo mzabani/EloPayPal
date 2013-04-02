@@ -15,7 +15,7 @@ namespace Elopayments
 				return false;
 			
 			// Remove special chars
-			identidade = identidade.Replace("-", "").Replace(".", "").Trim ();
+			identidade = identidade.Replace("-", "").Replace(".", "").Trim();
 			
 			int[] digitos_verificadores;
 			int[] numero;
