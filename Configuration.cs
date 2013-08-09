@@ -14,6 +14,15 @@ namespace Elopayments.PayPal
 	{
 		private static IDictionary<PaypalConf, PaypalConfiguration> Configurations = new Dictionary<PaypalConf, PaypalConfiguration> {
 			{ PaypalConf.SandBox,
+				new PaypalConfiguration("vendedor_elomeno@elomeno.com",
+				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
+				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
+				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
+				                        "BRL",
+				                        "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay", "https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment",
+				                        @"vendedor_elomeno_api1.elomeno.com", @"TZTBWLL4NZZBF3BK", 
+				                        @"AFcWxV21C7fd0v3bYYYRCpSSRl31A7.1ToEbTMAFn05EqHF20QeE1ghw", @"APP-80W284485P519543T")
+				/*
 				new PaypalConfiguration("elomen_1359672509_biz@yahoo.com.br",
 				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
@@ -21,7 +30,7 @@ namespace Elopayments.PayPal
 				                        "USD",
 				                        "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay", "https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment",
 				                        @"elomen_1359672509_biz_api1.yahoo.com.br", @"1359672567", 
-				                        @"AmGdQ6WhDUwWYSzNXl36p6HLpOdUAyacFb0kCoKo5r8cyA8TuSxhgzTU", @"APP-80W284485P519543T")
+				                        @"AmGdQ6WhDUwWYSzNXl36p6HLpOdUAyacFb0kCoKo5r8cyA8TuSxhgzTU", @"APP-80W284485P519543T")*/
 			},
 
 			{ PaypalConf.Production,

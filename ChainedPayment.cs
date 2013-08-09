@@ -45,7 +45,8 @@ namespace Elopayments.PayPal
 				requestEnvelope = new {
 					errorLanguage = "en_US", // Only en_US is supported
 					detailLevel = "ReturnAll"
-				}
+				},
+				payKeyDuration = "PT30M"
 			};
 		}
 
