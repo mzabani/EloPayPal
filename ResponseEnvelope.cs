@@ -1,6 +1,6 @@
 using System;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	/// <summary>
 	/// Response envelope. It must stored for every response, since it contains necessary information for support.

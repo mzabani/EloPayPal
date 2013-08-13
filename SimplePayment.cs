@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
-using Elopayments;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public class SimplePayment : Payment
 	{
-		private PaypalReceiver Receiver;
-		public void SetReceiver(PaypalReceiver receiver)
+		private PayPalReceiver Receiver;
+		public void SetReceiver(PayPalReceiver receiver)
 		{
 			if (receiver.primary != null)
 				throw new InvalidOperationException("A simple payment's receiver must not be primary or secondary, i.e. it has to have primary == null");
@@ -85,7 +84,7 @@ namespace Elopayments.PayPal
 			}*/
 		}
 		
-		public SimplePayment(PaypalConfiguration conf)
+		public SimplePayment(PayPalConfiguration conf)
 		{
 			this.PaymentConfiguration = conf;
 			this.Phase = PaymentPhase.NothingDone;

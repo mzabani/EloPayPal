@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
-using Elopayments;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public class NotificationReceived
 	{
-		private PaypalConfiguration configuration;
+		private PayPalConfiguration configuration;
 
 		public bool Execute(string ipnContent, out string paypalAnswer) {
 			ServicePointManager.ServerCertificateValidationCallback = configuration.CertificateValidator;
@@ -43,7 +42,7 @@ namespace Elopayments.PayPal
 			}
 		}
 
-		public NotificationReceived(PaypalConfiguration conf)
+		public NotificationReceived(PayPalConfiguration conf)
 		{
 			this.configuration = conf;
 		}

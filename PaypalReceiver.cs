@@ -1,8 +1,8 @@
 using System;
 
-namespace Elopayments
+namespace EloPayPal
 {
-	public class PaypalReceiver
+	public class PayPalReceiver
 	{
 		public string email { get; private set; }
 		public decimal amount { get; private set; }
@@ -30,12 +30,12 @@ namespace Elopayments
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Elopayments.PaypalReceiver"/> class.
+		/// Initializes a new instance of the <see cref="Elopayments.PayPalReceiver"/> class.
 		/// </summary>
 		/// <param name="email">Email.</param>
 		/// <param name="amount">Amount.</param>
 		/// <param name="primary"> Whether this is a primary receiver or not. If null, this receiver can't be used in chained payments. If not null, this receiver can't be used in simple payments.</param>
-		public PaypalReceiver(string email, decimal amount, bool? primary) {
+		public PayPalReceiver(string email, decimal amount, bool? primary) {
 			this.email = email;
 			this.amount = amount;
 			this.primary = primary;

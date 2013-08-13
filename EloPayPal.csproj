@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,10 +29,10 @@
     <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\Json.NET\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\beeder\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
   </ItemGroup>
@@ -40,7 +40,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="PaypalConfiguration.cs" />
-    <Compile Include="PaypalReceiver.cs" />
+    <Compile Include="PayPalReceiver.cs" />
     <Compile Include="ResponseEnvelope.cs" />
     <Compile Include="ChainedPayment.cs" />
     <Compile Include="ElomenoReceiver.cs" />
@@ -65,6 +65,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="IPNs\" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

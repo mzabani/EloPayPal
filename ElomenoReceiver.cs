@@ -1,11 +1,11 @@
 using System;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public static class ElomenoReceiver
 	{
-		public static PaypalReceiver GetElomenoReceiver(decimal amount, bool? primary) {
-			return new PaypalReceiver(Configuration.Current.APICallerEmail, amount, primary);
+		public static PayPalReceiver GetElomenoReceiver(decimal amount, bool? primary) {
+			return new PayPalReceiver(Configuration.Current.APICallerEmail, amount, primary);
 		}
 	}
 }

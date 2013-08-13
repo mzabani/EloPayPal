@@ -5,7 +5,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Elopayments
+namespace EloPayPal
 {
 	public enum PaymentPhase {
 		NothingDone, Created, Executed

@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace Elopayments
+namespace EloPayPal
 {
 	public class PaymentTimeoutException : TimeoutException
 	{

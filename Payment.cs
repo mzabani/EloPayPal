@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
-using Elopayments;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public abstract class Payment
 	{
-		protected PaypalConfiguration PaymentConfiguration;
+		protected PayPalConfiguration PaymentConfiguration;
 		protected abstract object GetPaymentObject();
 
 		public string TrackingId { get; set; }

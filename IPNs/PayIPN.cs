@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Elopayments;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public class PayIPN
 	{

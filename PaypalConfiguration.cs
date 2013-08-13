@@ -4,9 +4,9 @@ using SslPolicyErrors = System.Net.Security.SslPolicyErrors;
 using X509Chain = System.Security.Cryptography.X509Certificates.X509Chain;
 using X509Certificate = System.Security.Cryptography.X509Certificates.X509Certificate;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
-	public class PaypalConfiguration
+	public class PayPalConfiguration
 	{
 		public string APICallerEmail { get; private set; }
 
@@ -32,12 +32,17 @@ namespace Elopayments.PayPal
 		public string Signature { get; private set; }
 		public string ApplicationId { get; private set; }
 
+        public string GetFinishPaymentUrl(string payKey)
+        {
+            return string.Format(FinishPaymentUrlFormat, payKey);
+        }
+
 		public bool CertificateValidator (object sender, X509Certificate certificate, X509Chain chain, 
 		                                         SslPolicyErrors sslPolicyErrors) {
 			return true;
 		}
 
-		public PaypalConfiguration(string APICallerEmail,
+		public PayPalConfiguration(string APICallerEmail,
 								   string PaymentErrorUrl, string PaymentSuccessUrl,
 		                           string FinishPaymentUrlFormat, string IPNReceivedUrl, string Currency,
 		                           string OperationPayEndpoint, string OperationExecutePaymentEndpoint,

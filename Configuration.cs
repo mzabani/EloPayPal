@@ -1,10 +1,10 @@
 using System;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
+using Newtonsoft.Json;  
 using System.Collections.Generic;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public enum PaypalConf {
 		SandBox, Production
@@ -12,9 +12,9 @@ namespace Elopayments.PayPal
 
 	public static class Configuration
 	{
-		private static IDictionary<PaypalConf, PaypalConfiguration> Configurations = new Dictionary<PaypalConf, PaypalConfiguration> {
+		private static IDictionary<PaypalConf, PayPalConfiguration> Configurations = new Dictionary<PaypalConf, PayPalConfiguration> {
 			{ PaypalConf.SandBox,
-				new PaypalConfiguration("vendedor_elomeno@elomeno.com",
+				new PayPalConfiguration("vendedor_elomeno@elomeno.com",
 				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
@@ -34,7 +34,7 @@ namespace Elopayments.PayPal
 			},
 
 			{ PaypalConf.Production,
-				new PaypalConfiguration("financeiro@elomeno.com",
+				new PayPalConfiguration("financeiro@elomeno.com",
 				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
 				                        "https://www.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
 				                        "https://ipnpb.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
@@ -45,8 +45,8 @@ namespace Elopayments.PayPal
 			}
 		};
 
-		private static PaypalConfiguration _currentConfiguration = null;
-		public static PaypalConfiguration Current {
+		private static PayPalConfiguration _currentConfiguration = null;
+		public static PayPalConfiguration Current {
 			get
 			{
 				if (_currentConfiguration == null)
@@ -61,6 +61,10 @@ namespace Elopayments.PayPal
 		{
 			_currentConfiguration = Configurations[conf];
 		}
+        public static void Set(PayPalConfiguration conf)
+        {
+            _currentConfiguration = conf;
+        }
 
 		/// <summary>
 		/// Creates a POST HttpWebRequest with all the authentication headers and with <paramref name="data"/> as the to-be-posted content.
@@ -71,7 +75,7 @@ namespace Elopayments.PayPal
 		/// <param name='data'>
 		/// The to-be-posted content.
 		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(string data, PaypalConfiguration conf) {
+		public static HttpWebRequest GetBasicHttpRequest(string data, PayPalConfiguration conf) {
 			HttpWebRequest wr = (HttpWebRequest) WebRequest.Create(conf.OperationPayEndpoint);
 
 			wr.Method = "POST";
@@ -106,7 +110,7 @@ namespace Elopayments.PayPal
 		/// <param name='jsonData'>
 		/// The object to be json encoded that will serve as the request's data.
 		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(object jsonData, PaypalConfiguration conf) {
+		public static HttpWebRequest GetBasicHttpRequest(object jsonData, PayPalConfiguration conf) {
 			string data = JsonConvert.SerializeObject(jsonData);
 
 			return GetBasicHttpRequest(data, conf);

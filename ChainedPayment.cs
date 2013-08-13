@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
-using Elopayments;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public class ChainedPayment : Payment
 	{
-		private IList<PaypalReceiver> receiverList;
-		public void AddReceiver(PaypalReceiver receiver)
+		private IList<PayPalReceiver> receiverList;
+		public void AddReceiver(PayPalReceiver receiver)
 		{
 			if (receiver.primary == null)
 				throw new InvalidOperationException("Whether the receiver is a primary receiver or not must be specified in chained payments");
@@ -50,11 +49,11 @@ namespace Elopayments.PayPal
 			};
 		}
 
-		public ChainedPayment(PaypalConfiguration conf)
+		public ChainedPayment(PayPalConfiguration conf)
 		{
 			this.PaymentConfiguration = conf;
 			this.Phase = PaymentPhase.NothingDone;
-			this.receiverList = new List<PaypalReceiver>(2);
+			this.receiverList = new List<PayPalReceiver>(2);
 			SetFeesPayer(FeesPayer.PrimaryReceiver);
 		}
 		

@@ -1,6 +1,6 @@
 using System;
 
-namespace Elopayments
+namespace EloPayPal
 {
 	public class MoneyUtils
 	{

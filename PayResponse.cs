@@ -1,6 +1,6 @@
 using System;
 
-namespace Elopayments.PayPal
+namespace EloPayPal
 {
 	public class PayResponse
 	{
