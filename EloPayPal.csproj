@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FDB71735-0CD5-490F-B069-34101DFAA728}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Elopayments</RootNamespace>
-    <AssemblyName>Elopayments</AssemblyName>
+    <RootNamespace>EloPayPal</RootNamespace>
+    <AssemblyName>EloPayPal</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -37,6 +37,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdaptivePayments\ErrorData.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="PaypalConfiguration.cs" />

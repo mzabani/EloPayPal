@@ -46,9 +46,6 @@ namespace EloPayPal
 			
 			//Console.WriteLine(JsonConvert.SerializeObject(GetPaymentObject()));
 
-			// Accept everything..
-			ServicePointManager.ServerCertificateValidationCallback = PaymentConfiguration.CertificateValidator;
-
 			HttpWebRequest wr = Configuration.GetBasicHttpRequest(GetPaymentObject(), PaymentConfiguration);
 			try
 			{

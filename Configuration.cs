@@ -20,6 +20,7 @@ namespace EloPayPal
 				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
 				                        "BRL",
 				                        "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay", "https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment",
+                                        @"http://elomeno.com/Payments/Notify",
 				                        @"vendedor_elomeno_api1.elomeno.com", @"TZTBWLL4NZZBF3BK", 
 				                        @"AFcWxV21C7fd0v3bYYYRCpSSRl31A7.1ToEbTMAFn05EqHF20QeE1ghw", @"APP-80W284485P519543T")
 				/*
@@ -40,6 +41,7 @@ namespace EloPayPal
 				                        "https://ipnpb.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
 				                        "BRL",
 				                        "https://svcs.paypal.com/AdaptivePayments/Pay", "https://svcs.paypal.com/AdaptivePayments/ExecutePayment",
+                                        @"http://elomeno.com/Payments/Notify",
 				                        @"financeiro_api1.elomeno.com", @"YMYM5NUXH953M2LB", 
 				                        @"AFcWxV21C7fd0v3bYYYRCpSSRl31AmXZ0fg.GJBj-5JYnODd1XCUQeTp", @"APP-619555159N4882147")
 			}

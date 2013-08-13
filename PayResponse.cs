@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace EloPayPal
 {
@@ -9,6 +10,8 @@ namespace EloPayPal
 		public string payKey { get; set; }
 
 		public string paymentExecStatus { get; set; }
+
+        public IList<ErrorData> error { get; set; }
 	}
 }
 

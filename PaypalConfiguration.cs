@@ -14,12 +14,7 @@ namespace EloPayPal
 		public string PaymentSuccessUrl { get; private set; }
 		public string FinishPaymentUrlFormat { get; private set; }
 		public string IPNReceivedUrl { get; private set; }
-		public string IPNNotificationUrl {
-			get
-			{
-				return "http://elomeno.com/Payments/Notify";
-			}
-		}
+        public string IPNNotificationUrl { get; private set; }
 
 		public string Currency { get; private set; }
 
@@ -46,6 +41,7 @@ namespace EloPayPal
 								   string PaymentErrorUrl, string PaymentSuccessUrl,
 		                           string FinishPaymentUrlFormat, string IPNReceivedUrl, string Currency,
 		                           string OperationPayEndpoint, string OperationExecutePaymentEndpoint,
+                                   string IPNNotificationUrl,
 		                           string UserId, string Password, string Signature, string ApplicationId) {
 			this.APICallerEmail = APICallerEmail;
 
@@ -53,6 +49,7 @@ namespace EloPayPal
 			this.PaymentSuccessUrl = PaymentSuccessUrl;
 			this.FinishPaymentUrlFormat = FinishPaymentUrlFormat;
 			this.IPNReceivedUrl = IPNReceivedUrl;
+            this.IPNNotificationUrl = IPNNotificationUrl;
 
 			this.Currency = Currency;
 
