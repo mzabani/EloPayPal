@@ -28,8 +28,8 @@ namespace EloPayPal
 				{ "currencyCode", PaymentConfiguration.Currency },
 				{ "receiverList", new { receiver = new[] { Receiver } } },
 				{ "ipnNotificationUrl", PaymentConfiguration.IPNNotificationUrl },
-				{ "returnUrl", PaymentConfiguration.PaymentSuccessUrl },
-				{ "cancelUrl", PaymentConfiguration.PaymentErrorUrl },
+				{ "returnUrl", PaymentSuccessUrl ?? PaymentConfiguration.PaymentSuccessUrl },
+				{ "cancelUrl", PaymentErrorUrl ?? PaymentConfiguration.PaymentErrorUrl },
 				{ "requestEnvelope", new {
 						errorLanguage = "en_US",
 						detailLevel = "ReturnAll"

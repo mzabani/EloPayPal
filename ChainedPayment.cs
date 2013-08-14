@@ -39,8 +39,8 @@ namespace EloPayPal
 					receiver = GetReceiverSerializableList()
 				},
 				ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
-				returnUrl = PaymentConfiguration.PaymentSuccessUrl,
-				cancelUrl = PaymentConfiguration.PaymentErrorUrl,
+				returnUrl = PaymentSuccessUrl ?? PaymentConfiguration.PaymentSuccessUrl,
+				cancelUrl = PaymentErrorUrl ?? PaymentConfiguration.PaymentErrorUrl,
 				requestEnvelope = new {
 					errorLanguage = "en_US", // Only en_US is supported
 					detailLevel = "ReturnAll"

@@ -14,6 +14,16 @@ namespace EloPayPal
 
 		public string TrackingId { get; set; }
 
+        /// <summary>
+        /// Set this to overwrite the Url PayPal redirects the user to after a successful payment.
+        /// </summary>
+        public string PaymentSuccessUrl { get; set; }
+
+        /// <summary>
+        /// Set this to overwrite the Url PayPal redirects the user to after the user cancels a payment.
+        /// </summary>
+        public string PaymentErrorUrl { get; set; }
+
 		protected int _PayKeyDuration;
 
 		/// <summary>
