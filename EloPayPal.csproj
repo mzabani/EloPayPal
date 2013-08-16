@@ -29,22 +29,20 @@
     <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\beeder\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Json.NET\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdaptivePayments\ErrorData.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="PaypalConfiguration.cs" />
-    <Compile Include="PayPalReceiver.cs" />
     <Compile Include="ResponseEnvelope.cs" />
     <Compile Include="ChainedPayment.cs" />
-    <Compile Include="ElomenoReceiver.cs" />
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Validator.cs" />
@@ -63,6 +61,7 @@
     <Compile Include="IPNs\SellerIPN.cs" />
     <Compile Include="FeesCalculator.cs" />
     <Compile Include="MoneyUtils.cs" />
+    <Compile Include="PaypalReceiver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

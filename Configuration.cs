@@ -6,47 +6,8 @@ using System.Collections.Generic;
 
 namespace EloPayPal
 {
-	public enum PaypalConf {
-		SandBox, Production
-	};
-
 	public static class Configuration
 	{
-		private static IDictionary<PaypalConf, PayPalConfiguration> Configurations = new Dictionary<PaypalConf, PayPalConfiguration> {
-			{ PaypalConf.SandBox,
-				new PayPalConfiguration("vendedor_elomeno@elomeno.com",
-				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
-				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
-				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
-				                        "BRL",
-				                        "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay", "https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment",
-                                        @"http://elomeno.com/Payments/Notify",
-				                        @"vendedor_elomeno_api1.elomeno.com", @"TZTBWLL4NZZBF3BK", 
-				                        @"AFcWxV21C7fd0v3bYYYRCpSSRl31A7.1ToEbTMAFn05EqHF20QeE1ghw", @"APP-80W284485P519543T")
-				/*
-				new PaypalConfiguration("elomen_1359672509_biz@yahoo.com.br",
-				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
-				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
-				                        "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
-				                        "USD",
-				                        "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay", "https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment",
-				                        @"elomen_1359672509_biz_api1.yahoo.com.br", @"1359672567", 
-				                        @"AmGdQ6WhDUwWYSzNXl36p6HLpOdUAyacFb0kCoKo5r8cyA8TuSxhgzTU", @"APP-80W284485P519543T")*/
-			},
-
-			{ PaypalConf.Production,
-				new PayPalConfiguration("financeiro@elomeno.com",
-				                        "http://elomeno.com/Payments/Cancel", "http://elomeno.com/Payments/Return",
-				                        "https://www.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey={0}",
-				                        "https://ipnpb.paypal.com/cgi-bin/webscr?cmd=_notify-validate",
-				                        "BRL",
-				                        "https://svcs.paypal.com/AdaptivePayments/Pay", "https://svcs.paypal.com/AdaptivePayments/ExecutePayment",
-                                        @"http://elomeno.com/Payments/Notify",
-				                        @"financeiro_api1.elomeno.com", @"YMYM5NUXH953M2LB", 
-				                        @"AFcWxV21C7fd0v3bYYYRCpSSRl31AmXZ0fg.GJBj-5JYnODd1XCUQeTp", @"APP-619555159N4882147")
-			}
-		};
-
 		private static PayPalConfiguration _currentConfiguration = null;
 		public static PayPalConfiguration Current {
 			get
@@ -59,10 +20,7 @@ namespace EloPayPal
 				return _currentConfiguration;
 			}
 		}
-		public static void Set(PaypalConf conf)
-		{
-			_currentConfiguration = Configurations[conf];
-		}
+
         public static void Set(PayPalConfiguration conf)
         {
             _currentConfiguration = conf;
