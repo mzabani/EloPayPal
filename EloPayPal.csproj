@@ -9,6 +9,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>EloPayPal</RootNamespace>
     <AssemblyName>EloPayPal</AssemblyName>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\Beeder\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -43,18 +45,18 @@
     <Compile Include="PaypalConfiguration.cs" />
     <Compile Include="PayPalReceiver.cs" />
     <Compile Include="ResponseEnvelope.cs" />
-    <Compile Include="ChainedPayment.cs" />
+    <Compile Include="AdaptivePayments\ChainedPayment.cs" />
     <Compile Include="ElomenoReceiver.cs" />
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Exceptions\PaymentTimeoutException.cs" />
     <Compile Include="PaymentMethod.cs" />
-    <Compile Include="PayResponse.cs" />
+    <Compile Include="AdaptivePayments\PayResponse.cs" />
     <Compile Include="PaymentPhase.cs" />
     <Compile Include="FeesPayer.cs" />
     <Compile Include="SimplePayment.cs" />
-    <Compile Include="Payment.cs" />
+    <Compile Include="AdaptivePayments\Payment.cs" />
     <Compile Include="NotificationReceived.cs" />
     <Compile Include="IPNs\PayIPN.cs" />
     <Compile Include="IPNs\IPNComplete.cs" />
@@ -68,4 +70,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EloPayPal
+namespace EloPayPal.AdaptivePayments
 {
 	public class PayResponse
 	{

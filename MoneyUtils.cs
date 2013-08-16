@@ -4,6 +4,20 @@ namespace EloPayPal
 {
 	public class MoneyUtils
 	{
+        public static decimal RoundTo50CentsUp(decimal value)
+        {
+            decimal valueX100 = value * 100M;
+
+            // The last two digits may in fact not be an integer, but the algorithm still works fine like his
+            decimal lastTwoDigits = valueX100 % 100M;
+            if (lastTwoDigits == 0 || lastTwoDigits == 50)
+                return value;
+            else if (lastTwoDigits < 50)
+                return Math.Floor(value) + .50M;
+            else
+                return Math.Ceiling(value);
+        }
+
 		public static decimal RoundTo10CentsUp(decimal value) {
 			return Math.Ceiling(value * 10) / 10;
 		}
@@ -23,4 +37,3 @@ namespace EloPayPal
 		}
 	}
 }
-

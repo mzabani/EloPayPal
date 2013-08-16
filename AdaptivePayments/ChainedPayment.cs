@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace EloPayPal
+namespace EloPayPal.AdaptivePayments
 {
 	public class ChainedPayment : Payment
 	{
