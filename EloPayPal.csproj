@@ -39,11 +39,16 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdaptiveAccounts\NameType.cs" />
+    <Compile Include="AdaptiveAccounts\GetVerifiedStatusRequest.cs" />
+    <Compile Include="AdaptiveAccounts\GetVerifiedStatusResponse.cs" />
+    <Compile Include="AdaptiveAccounts\UserInfoType.cs" />
     <Compile Include="AdaptivePayments\ErrorData.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Configuration.cs" />
-    <Compile Include="PaypalConfiguration.cs" />
-    <Compile Include="ResponseEnvelope.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\ProductionConfiguration.cs" />
+    <Compile Include="Configuration\PayPalConfiguration.cs" />
+    <Compile Include="AdaptiveCommon\ResponseEnvelope.cs" />
     <Compile Include="AdaptivePayments\ChainedPayment.cs" />
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
@@ -53,8 +58,8 @@
     <Compile Include="AdaptivePayments\PayResponse.cs" />
     <Compile Include="PaymentPhase.cs" />
     <Compile Include="FeesPayer.cs" />
-    <Compile Include="SimplePayment.cs" />
-    <Compile Include="AdaptivePayments\Payment.cs" />
+    <Compile Include="AdaptivePayments\SimplePayment.cs" />
+    <Compile Include="AdaptivePayments\PayRequest.cs" />
     <Compile Include="NotificationReceived.cs" />
     <Compile Include="IPNs\PayIPN.cs" />
     <Compile Include="IPNs\IPNComplete.cs" />

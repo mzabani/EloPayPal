@@ -35,8 +35,8 @@ namespace EloPayPal
 		/// <param name='data'>
 		/// The to-be-posted content.
 		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(string data, PayPalConfiguration conf) {
-			HttpWebRequest wr = (HttpWebRequest) WebRequest.Create(conf.OperationPayEndpoint);
+		public static HttpWebRequest GetBasicHttpRequest(string endpointUrl, string data, PayPalConfiguration conf) {
+			HttpWebRequest wr = (HttpWebRequest) WebRequest.Create(endpointUrl);
 
 			wr.Method = "POST";
 			wr.ContentType = "application/x-www-form-urlencoded";
@@ -70,10 +70,10 @@ namespace EloPayPal
 		/// <param name='jsonData'>
 		/// The object to be json encoded that will serve as the request's data.
 		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(object jsonData, PayPalConfiguration conf) {
+		public static HttpWebRequest GetBasicHttpRequest(string endpointUrl, object jsonData, PayPalConfiguration conf) {
 			string data = JsonConvert.SerializeObject(jsonData);
 
-			return GetBasicHttpRequest(data, conf);
+			return GetBasicHttpRequest(endpointUrl, data, conf);
 		}
 	}
 }

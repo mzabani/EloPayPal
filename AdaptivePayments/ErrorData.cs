@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EloPayPal.AdaptivePayments
+namespace EloPayPal.Adaptive
 {
     public class ErrorData
     {

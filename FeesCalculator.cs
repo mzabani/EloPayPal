@@ -31,13 +31,13 @@ namespace EloPayPal
 		#endregion
 
 		/// <summary>
-		/// The value of the transaction minus PayPal's taxes.
+		/// The value of the transaction minus PayPal's fees.
 		/// </summary>
-		public decimal GetValueWithoutTaxes() {
-			return TransactionValue - GetTaxesValue();
+		public decimal GetValueWithoutFees() {
+			return TransactionValue - GetFeesValue();
 		}
 
-		public decimal GetTransactionValueFromValueWithoutTaxes(decimal valueWithoutTaxes) {
+		public decimal GetTransactionValueFromValueWithoutFees(decimal valueWithoutTaxes) {
 			if (PayPalProportionalRate == null || PayPalFixedRate == null)
 				throw new InvalidOperationException("Taxes must be defined for this operation");
 
@@ -46,24 +46,24 @@ namespace EloPayPal
 			// Just to be certain
 			attemptValue -= .01M;
 
-			while (attemptValue - GetTaxesValue(attemptValue) != valueWithoutTaxes)
+			while (attemptValue - GetFeesValue(attemptValue) != valueWithoutTaxes)
 				attemptValue += .01M;
 
 			return attemptValue;
 		}
 
-		private decimal GetTaxesValue(decimal transactionValue) {
+		private decimal GetFeesValue(decimal transactionValue) {
 			return MoneyUtils.RoundCentsHalfUp(transactionValue * PayPalProportionalRate.Value) + PayPalFixedRate.Value;
 		}
 
 		/// <summary>
 		/// The charges that will be deducted by PayPal for this transaction.
 		/// </summary>
-		public decimal GetTaxesValue() {
+		public decimal GetFeesValue() {
 			if (PayPalProportionalRate == null || PayPalFixedRate == null)
 				throw new InvalidOperationException("Taxes must be defined for this operation");
 
-			return GetTaxesValue(TransactionValue);
+			return GetFeesValue(TransactionValue);
 		}
 	}
 }

@@ -5,12 +5,12 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace EloPayPal.AdaptivePayments
+namespace EloPayPal.Adaptive
 {
-	public abstract class Payment
+	public abstract class PayRequest
 	{
 		protected PayPalConfiguration PaymentConfiguration;
-		protected abstract object GetPaymentObject();
+		protected abstract object GetRequestObject();
 
 		public string TrackingId { get; set; }
 
@@ -56,7 +56,7 @@ namespace EloPayPal.AdaptivePayments
 			
 			//Console.WriteLine(JsonConvert.SerializeObject(GetPaymentObject()));
 
-			HttpWebRequest wr = Configuration.GetBasicHttpRequest(GetPaymentObject(), PaymentConfiguration);
+			HttpWebRequest wr = Configuration.GetBasicHttpRequest(PaymentConfiguration.OperationPayEndpoint, GetRequestObject(), PaymentConfiguration);
 			try
 			{
 				using (WebResponse response = wr.GetResponse())

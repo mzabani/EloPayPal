@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace EloPayPal.AdaptivePayments
+namespace EloPayPal.Adaptive
 {
-	public class SimplePayment : Payment
+	public class SimplePayment : PayRequest
 	{
 		private PayPalReceiver Receiver;
 		public void SetReceiver(PayPalReceiver receiver)
@@ -21,7 +21,7 @@ namespace EloPayPal.AdaptivePayments
 			Receiver = receiver;
 		}
 
-		protected override object GetPaymentObject()
+		protected override object GetRequestObject()
 		{
 			var obj = new Dictionary<string, object>() {
 				{ "actionType", "PAY" },
@@ -44,44 +44,6 @@ namespace EloPayPal.AdaptivePayments
 				obj.Add("payKeyDuration", "PT" + _PayKeyDuration + "M");
 
 			return obj;
-			/*
-			if (TrackingId != null)
-			{
-				return new {
-					actionType = "PAY",
-					currencyCode = PaymentConfiguration.Currency,
-					receiverList = new {
-						receiver = new[] { Receiver }
-					},
-					ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
-					returnUrl = PaymentConfiguration.PaymentSuccessUrl,
-					cancelUrl = PaymentConfiguration.PaymentErrorUrl,
-					requestEnvelope = new {
-						errorLanguage = "en_US", // Only en_US is supported
-						detailLevel = "ReturnAll"
-					},
-					trackingID = TrackingId,
-					payKeyDuration = "PT30M"
-				};
-			}
-			else
-			{
-				return new {
-					actionType = "PAY",
-					currencyCode = PaymentConfiguration.Currency,
-					receiverList = new {
-						receiver = new[] { Receiver }
-					},
-					ipnNotificationUrl = PaymentConfiguration.IPNNotificationUrl,
-					returnUrl = PaymentConfiguration.PaymentSuccessUrl,
-					cancelUrl = PaymentConfiguration.PaymentErrorUrl,
-					requestEnvelope = new {
-						errorLanguage = "en_US", // Only en_US is supported
-						detailLevel = "ReturnAll"
-					},
-					payKeyDuration = "PT30M"
-				};
-			}*/
 		}
 		
 		public SimplePayment(PayPalConfiguration conf)

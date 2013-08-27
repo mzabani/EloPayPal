@@ -20,6 +20,7 @@ namespace EloPayPal
 
 		public string OperationPayEndpoint { get; private set; }
 		public string OperationExecutePaymentEndpoint { get; private set; }
+        public string OperationGetVerifiedStatusEndpoint { get; private set; }
 
 		// API Caller Data
 		public string UserId { get; private set; }
@@ -40,7 +41,7 @@ namespace EloPayPal
 		public PayPalConfiguration(string APICallerEmail,
 								   string PaymentErrorUrl, string PaymentSuccessUrl,
 		                           string FinishPaymentUrlFormat, string IPNReceivedUrl, string Currency,
-		                           string OperationPayEndpoint, string OperationExecutePaymentEndpoint,
+		                           string OperationPayEndpoint, string OperationExecutePaymentEndpoint, string OperationGetVerifiedStatusEndpoint,
                                    string IPNNotificationUrl,
 		                           string UserId, string Password, string Signature, string ApplicationId) {
 			this.APICallerEmail = APICallerEmail;
@@ -55,6 +56,7 @@ namespace EloPayPal
 
 			this.OperationPayEndpoint = OperationPayEndpoint;
 			this.OperationExecutePaymentEndpoint = OperationExecutePaymentEndpoint;
+            this.OperationGetVerifiedStatusEndpoint = OperationGetVerifiedStatusEndpoint;
 
 			this.UserId = UserId;
 			this.Password = Password;

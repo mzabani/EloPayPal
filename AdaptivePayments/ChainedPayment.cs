@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace EloPayPal.AdaptivePayments
+namespace EloPayPal.Adaptive
 {
-	public class ChainedPayment : Payment
+	public class ChainedPayment : PayRequest
 	{
 		private IList<PayPalReceiver> receiverList;
 		public void AddReceiver(PayPalReceiver receiver)
@@ -29,7 +29,7 @@ namespace EloPayPal.AdaptivePayments
 			this.FeesPayer = feesPayer;
 		}
 
-		protected override object GetPaymentObject()
+		protected override object GetRequestObject()
 		{
 			return new {
 				actionType = "PAY",
