@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;  
 using System.Collections.Generic;
+using EloPayPal.Serialization;
 
 namespace EloPayPal
 {
@@ -21,10 +21,16 @@ namespace EloPayPal
 			}
 		}
 
+		/// <summary>
+		/// Sets the PayPal App and settings to be used as the default. Don't forget to set serializers as well.
+		/// </summary>
+		/// <param name="conf">The configuration with the App's settings and other things.</param>
         public static void Set(PayPalConfiguration conf)
         {
             _currentConfiguration = conf;
         }
+
+		public static IJsonSerializer JsonSerializer;
 
 		/// <summary>
 		/// Creates a POST HttpWebRequest with all the authentication headers and with <paramref name="data"/> as the to-be-posted content.
@@ -71,7 +77,7 @@ namespace EloPayPal
 		/// The object to be json encoded that will serve as the request's data.
 		/// </param>
 		public static HttpWebRequest GetBasicHttpRequest(string endpointUrl, object jsonData, PayPalConfiguration conf) {
-			string data = JsonConvert.SerializeObject(jsonData);
+			string data = Configuration.JsonSerializer.Serialize(jsonData);
 
 			return GetBasicHttpRequest(endpointUrl, data, conf);
 		}

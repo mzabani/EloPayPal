@@ -5,7 +5,6 @@ using System.Text;
 using System.Net;
 using System.IO;
 using EloPayPal;
-using Newtonsoft.Json;
 
 namespace EloPayPal.Adaptive
 {
@@ -64,7 +63,7 @@ namespace EloPayPal.Adaptive
 
                         //Console.WriteLine("Returned data:\n {0}", data);
 
-                        statusResponse = JsonConvert.DeserializeObject<GetVerifiedStatusResponse>(data);
+                        statusResponse = Configuration.JsonSerializer.Deserialize<GetVerifiedStatusResponse>(data);
 
                         //Console.WriteLine("Serialized return data: {0}", JsonConvert.SerializeObject(payResponse));
                         if (statusResponse.responseEnvelope.ack == "Success")

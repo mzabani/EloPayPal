@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using SslPolicyErrors = System.Net.Security.SslPolicyErrors;
-using X509Chain = System.Security.Cryptography.X509Certificates.X509Chain;
-using X509Certificate = System.Security.Cryptography.X509Certificates.X509Certificate;
 
 namespace EloPayPal
 {
