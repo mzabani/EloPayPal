@@ -87,7 +87,7 @@ namespace EloPayPal.Adaptive
 			}
 			catch (WebException e) {
 				if (e.Status == WebExceptionStatus.Timeout)
-					throw new PaymentTimeoutException(e);
+					throw new PayPalTimeoutException(e);
 				else
 					throw;
 			}

@@ -3,12 +3,12 @@ using System.Net;
 
 namespace EloPayPal
 {
-	public class PaymentTimeoutException : TimeoutException
+	public class PayPalTimeoutException : TimeoutException
 	{
 		public WebResponse Response;
 		public WebExceptionStatus Status;
 
-		public PaymentTimeoutException(WebException e) : base("A timeout occurred while contacting the payment service", e)
+		public PayPalTimeoutException(WebException e) : base("A timeout occurred while contacting PayPal's service", e)
 		{
 			Response = e.Response;
 			Status = e.Status;

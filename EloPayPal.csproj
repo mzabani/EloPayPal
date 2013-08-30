@@ -50,7 +50,6 @@
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Validator.cs" />
-    <Compile Include="Exceptions\PaymentTimeoutException.cs" />
     <Compile Include="AdaptivePayments\PayResponse.cs" />
     <Compile Include="PaymentPhase.cs" />
     <Compile Include="FeesPayer.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="PaypalReceiver.cs" />
     <Compile Include="Configuration\SandboxConfiguration.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
+    <Compile Include="Exceptions\PayPalTimeoutException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
