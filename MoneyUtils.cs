@@ -8,7 +8,7 @@ namespace EloPayPal
         {
             decimal valueX100 = value * 100M;
 
-            // The last two digits may in fact not be an integer, but the algorithm still works fine like his
+            // The last two digits may in fact not be an integer, but the algorithm still works fine like this
             decimal lastTwoDigits = valueX100 % 100M;
             if (lastTwoDigits == 0 || lastTwoDigits == 50)
                 return value;

@@ -2,6 +2,8 @@ using System;
 
 namespace EloPayPal
 {
+	// PayPal's IPN docs are very convoluted. Get a better grasp of it before implementing this class, which seems unneeded so far.
+	/*
 	public class IPNComplete
 	{
 		/// <summary>
@@ -73,5 +75,6 @@ namespace EloPayPal
 		public string shipping { get; set; }
 		public string tax { get; set; }
 	}
+	*/
 }
 

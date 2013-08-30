@@ -1,6 +1,6 @@
 using System;
 
-namespace EloPayPal
+namespace EloPayPal.Adaptive
 {
 	public class PayPalReceiver
 	{

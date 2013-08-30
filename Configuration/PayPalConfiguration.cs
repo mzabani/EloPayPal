@@ -33,11 +33,6 @@ namespace EloPayPal
             return string.Format(FinishPaymentUrlFormat, payKey);
         }
 
-		public bool CertificateValidator (object sender, X509Certificate certificate, X509Chain chain, 
-		                                         SslPolicyErrors sslPolicyErrors) {
-			return true;
-		}
-
 		public PayPalConfiguration(string APICallerEmail,
 								   string PaymentErrorUrl, string PaymentSuccessUrl,
 		                           string FinishPaymentUrlFormat, string IPNReceivedUrl, string Currency,

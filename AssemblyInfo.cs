@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("Elopayments")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("EloPayPal")]
+[assembly: AssemblyDescription(".NET library to use PayPal's services")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("mzabani")]
+[assembly: AssemblyCopyright("Marcelo Zabani")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

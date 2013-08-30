@@ -11,8 +11,6 @@ namespace EloPayPal
 		private PayPalConfiguration configuration;
 
 		public bool Execute(string ipnContent, out string paypalAnswer) {
-			ServicePointManager.ServerCertificateValidationCallback = configuration.CertificateValidator;
-
 			WebRequest wr = WebRequest.Create(configuration.IPNReceivedUrl);
 			wr.Method = "POST";
 			//wr.ContentLength = ipnContent.Length;

@@ -49,13 +49,11 @@
     <Compile Include="AdaptivePayments\ChainedPayment.cs" />
     <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
-    <Compile Include="Validator.cs" />
     <Compile Include="AdaptivePayments\PayResponse.cs" />
     <Compile Include="PaymentPhase.cs" />
     <Compile Include="FeesPayer.cs" />
     <Compile Include="AdaptivePayments\SimplePayment.cs" />
     <Compile Include="AdaptivePayments\PayRequest.cs" />
-    <Compile Include="NotificationReceived.cs" />
     <Compile Include="IPNs\PayIPN.cs" />
     <Compile Include="IPNs\IPNComplete.cs" />
     <Compile Include="IPNs\IPNTransaction.cs" />
@@ -63,10 +61,11 @@
     <Compile Include="IPNs\SellerIPN.cs" />
     <Compile Include="FeesCalculator.cs" />
     <Compile Include="MoneyUtils.cs" />
-    <Compile Include="PaypalReceiver.cs" />
     <Compile Include="Configuration\SandboxConfiguration.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
     <Compile Include="Exceptions\PayPalTimeoutException.cs" />
+    <Compile Include="IPNs\NotificationReceived.cs" />
+    <Compile Include="AdaptivePayments\PayPalReceiver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
