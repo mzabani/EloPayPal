@@ -1,0 +1,4 @@
+/home/mzabani/Projects/EloPayPal/EloPayPal/bin/Debug/EloPayPal.dll.mdb
+/home/mzabani/Projects/EloPayPal/EloPayPal/bin/Debug/EloPayPal.dll
+/home/mzabani/Projects/EloPayPal/EloPayPal/obj/Debug/EloPayPal.dll
+/home/mzabani/Projects/EloPayPal/EloPayPal/obj/Debug/EloPayPal.dll.mdb

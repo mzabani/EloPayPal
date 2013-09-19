@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EloPayPal", "EloPayPal\EloPayPal.csproj", "{FDB71735-0CD5-490F-B069-34101DFAA728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CE07845B-EB7E-4520-BF39-072B48F6997F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Any CPU = Default|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDB71735-0CD5-490F-B069-34101DFAA728}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = EloPayPal\EloPayPal.csproj
+	EndGlobalSection
+EndGlobal
