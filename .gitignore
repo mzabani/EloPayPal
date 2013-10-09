@@ -2,10 +2,11 @@
 *.mdb
 *.pdb
 *.userprefs
+/test-results
 /EloPayPal/bin
 /EloPayPal/obj
 /Tests/test-results
 /Tests/bin
 
 # This folder is left out because it contains sensitive data of my Sandbox account
-/Tests/Sandbox
+/SandboxTests

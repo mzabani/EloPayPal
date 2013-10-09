@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EloPayPal", "EloPayPal\EloP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CE07845B-EB7E-4520-BF39-072B48F6997F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxTests", "SandboxTests\SandboxTests.csproj", "{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Any CPU = Default|Any CPU
@@ -18,6 +20,12 @@ Global
 		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE07845B-EB7E-4520-BF39-072B48F6997F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C031F3-BE2A-4575-8AEA-06D9E6CFECA9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDB71735-0CD5-490F-B069-34101DFAA728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDB71735-0CD5-490F-B069-34101DFAA728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDB71735-0CD5-490F-B069-34101DFAA728}.Default|Any CPU.ActiveCfg = Debug|Any CPU

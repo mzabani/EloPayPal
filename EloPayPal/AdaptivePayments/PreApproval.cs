@@ -1,31 +1,31 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Net;
-using System.IO;
+using EloPayPal;
 
 namespace EloPayPal.Adaptive
 {
 	public class PreApproval : Request<PreApprovalResponse>
 	{
-		private DateTime? endingDate;
-		public DateTime? EndingDate {
-			get {
-				return endingDate;
+		private DateTime? endingDate = null;
+		public void SetEndingDate(DateTime endingDate)
+		{
+			if (endingDate.Kind != DateTimeKind.Local && endingDate.Kind != DateTimeKind.Utc)
+			{
+				throw new ArgumentException("The DateTime has to be of kind Local or Utc. The kind of the passed date is Unspecified");
 			}
-			set {
-				endingDate = value;
-			}
+
+			this.endingDate = endingDate;
 		}
 
-		private DateTime startingDate;
-		public DateTime StartingDate {
-			get {
-				return startingDate;
+		private DateTime? startingDate = null;
+		public void SetStartingDate(DateTime startingDate)
+		{
+			if (startingDate.Kind != DateTimeKind.Local && startingDate.Kind != DateTimeKind.Utc)
+			{
+				throw new ArgumentException("The DateTime has to be of kind Local or Utc. The kind of the passed date is Unspecified");
 			}
-			set {
-				startingDate = value;
-			}
+			
+			this.startingDate = startingDate;
 		}
 
 		private decimal maxAmountPerPayment;
@@ -41,27 +41,48 @@ namespace EloPayPal.Adaptive
 			}
 		}
 
+		private decimal maxTotalAmountOfAllPayments;
+		public decimal MaxTotalAmountOfAllPayments {
+			get {
+				return maxTotalAmountOfAllPayments;
+			}
+			set {
+				if (value <= 0)
+					throw new ArgumentOutOfRangeException("You must provide a positive value");
+				
+				maxTotalAmountOfAllPayments = value;
+			}
+		}
+
 		public int MaxNumberOfPayments = 0;
 
 		protected override IDictionary<string, object> GetRequestObject()
 		{
 			var obj = new Dictionary<string, object>() {
-				{ "actionType", "PAY" },
-				{ "startingDate", startingDate }
+				{ "startingDate", startingDate.Value.ToIsoDateAndTimeString() }
 			};
 
 			if (endingDate != null)
-				obj.Add("endingDate", endingDate.Value);
+				obj.Add("endingDate", endingDate.Value.ToIsoDateAndTimeString());
 
 			if (maxAmountPerPayment != 0)
 				obj.Add("maxAmountPerPayment", maxAmountPerPayment);
 
+			if (maxTotalAmountOfAllPayments != 0)
+				obj.Add("maxTotalAmountOfAllPayments", maxTotalAmountOfAllPayments);
+
+			if (MaxNumberOfPayments != 0)
+				obj.Add("maxNumberOfPayments", MaxNumberOfPayments);
+
 			return obj;
 		}
 
-		public override RequestAck Execute (out PreApprovalResponse response)
+		public override RequestAck Execute(out PreApprovalResponse response)
 		{
-			return Execute(RequestConfiguration.OperationPreApprovalEndpoint, out response);
+			if (startingDate == null)
+				throw new InvalidOperationException("You have to define a starting date first");
+
+			return Execute (RequestConfiguration.OperationPreApprovalEndpoint, out response);
 		}
 		
 		public PreApproval(PayPalConfiguration conf)
