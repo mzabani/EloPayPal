@@ -40,17 +40,13 @@
     <Compile Include="AdaptiveAccounts\GetVerifiedStatusRequest.cs" />
     <Compile Include="AdaptiveAccounts\GetVerifiedStatusResponse.cs" />
     <Compile Include="AdaptiveAccounts\UserInfoType.cs" />
-    <Compile Include="AdaptivePayments\ErrorData.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Configuration\ProductionConfiguration.cs" />
     <Compile Include="Configuration\PayPalConfiguration.cs" />
     <Compile Include="AdaptiveCommon\ResponseEnvelope.cs" />
     <Compile Include="AdaptivePayments\ChainedPayment.cs" />
-    <Compile Include="InstructionAck.cs" />
     <Compile Include="PaymentStatus.cs" />
-    <Compile Include="AdaptivePayments\PayResponse.cs" />
-    <Compile Include="PaymentPhase.cs" />
     <Compile Include="FeesPayer.cs" />
     <Compile Include="AdaptivePayments\SimplePayment.cs" />
     <Compile Include="AdaptivePayments\PayRequest.cs" />
@@ -66,6 +62,13 @@
     <Compile Include="Exceptions\PayPalTimeoutException.cs" />
     <Compile Include="IPNs\NotificationReceived.cs" />
     <Compile Include="AdaptivePayments\PayPalReceiver.cs" />
+    <Compile Include="AdaptivePayments\PreApproval.cs" />
+    <Compile Include="RequestAck.cs" />
+    <Compile Include="AdaptiveCommon\IAdaptiveResponse.cs" />
+    <Compile Include="AdaptivePayments\PayResponse.cs" />
+    <Compile Include="AdaptivePayments\PreApprovalResponse.cs" />
+    <Compile Include="AdaptiveCommon\ErrorData.cs" />
+    <Compile Include="AdaptiveCommon\Request.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

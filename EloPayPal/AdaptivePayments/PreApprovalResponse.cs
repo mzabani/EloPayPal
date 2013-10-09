@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace EloPayPal.Adaptive
 {
-	public class PayResponse : IAdaptiveResponse
+	public class PreApprovalResponse : IAdaptiveResponse
 	{
 		public ResponseEnvelope responseEnvelope { get; set; }
 
-		public string payKey { get; set; }
+		public string preapprovalKey { get; set; }
 
 		public string paymentExecStatus { get; set; }
 

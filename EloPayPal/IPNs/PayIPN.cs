@@ -10,6 +10,11 @@ namespace EloPayPal
 		/// </summary>
 		public string txn_id { get; set; }
 
+		/// <summary>
+		/// If this IPN is related to a payment created in PayPal's Sandbox, this is equal to 1.
+		/// </summary>
+		public int? test_ipn { get; set; }
+
 		public DateTime? payment_request_date { get; set; }
 		public string return_url { get; set; }
 		public string fees_payer { get; set; }

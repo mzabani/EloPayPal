@@ -4,41 +4,43 @@ namespace EloPayPal.Adaptive
 {
 	public class PayPalReceiver
 	{
-		public string email { get; private set; }
-		public decimal amount { get; private set; }
+		public string Email { get; private set; }
+		public decimal Amount { get; private set; }
 
 		/// <summary>
 		/// Whether this is a primary receiver or not. If null, this receiver can't be used in chained payments. If not null, this
 		/// receiver can't be used in simple payments.
 		/// </summary>
-		public bool? primary { get; private set; }
+		public bool? Primary { get; private set; }
 
 		internal object GetSerializableObject() {
-			if (primary == null)
+			if (Primary == null)
 			{
 				return new {
-					email, amount
+					email = Email,
+					amount = Amount
 				};
 			}
 			else
 			{
 				return new {
-					email, amount,
-					primary = primary.Value ? "true" : "false"
+					email = Email,
+					amount = Amount,
+					primary = Primary.Value ? "true" : "false"
 				};
 			}
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Elopayments.PayPalReceiver"/> class.
+		/// Initializes a new instance of the <see cref="EloPayPal.PayPalReceiver"/> class.
 		/// </summary>
-		/// <param name="email">Email.</param>
-		/// <param name="amount">Amount.</param>
-		/// <param name="primary"> Whether this is a primary receiver or not. If null, this receiver can't be used in chained payments. If not null, this receiver can't be used in simple payments.</param>
+		/// <param name="email">The email of the PayPal account of this receiver.</param>
+		/// <param name="amount">The amount this receiver will receive in a payment.</param>
+		/// <param name="primary">Whether this is a primary receiver or not. If null, this receiver can't be used in chained payments. If not null, this receiver can't be used in simple payments.</param>
 		public PayPalReceiver(string email, decimal amount, bool? primary) {
-			this.email = email;
-			this.amount = amount;
-			this.primary = primary;
+			this.Email = email;
+			this.Amount = amount;
+			this.Primary = primary;
 		}
 	}
 }

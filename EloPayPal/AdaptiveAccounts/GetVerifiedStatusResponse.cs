@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EloPayPal.Adaptive
 {
-	public class GetVerifiedStatusResponse
+	public class GetVerifiedStatusResponse : IAdaptiveResponse
 	{
 		public ResponseEnvelope responseEnvelope { get; set; }
 
@@ -12,7 +12,7 @@ namespace EloPayPal.Adaptive
         /// </summary>
 		public string accountStatus { get; set; }
 
-        public NameType name { get; set; }
+		public UserInfoType userInfo { get; set; }
 
         public IList<ErrorData> error { get; set; }
 	}

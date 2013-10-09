@@ -64,6 +64,11 @@ namespace EloPayPal
 		public decimal? shipping { get; set; }
 		#endregion
 
+		/// <summary>
+		/// If this IPN is related to a payment created in PayPal's Sandbox, this is equal to 1.
+		/// </summary>
+		public int? test_ipn { get; set; }
+
 		public string notify_version { get; set; }
 		public string charset { get; set; }
 		public string verify_sign { get; set; }

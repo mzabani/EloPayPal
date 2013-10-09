@@ -1,5 +1,11 @@
-/bin
-/obj
 *.dll
 *.mdb
 *.pdb
+*.userprefs
+/EloPayPal/bin
+/EloPayPal/obj
+/Tests/test-results
+/Tests/bin
+
+# This folder is left out because it contains sensitive data of my Sandbox account
+/Tests/Sandbox

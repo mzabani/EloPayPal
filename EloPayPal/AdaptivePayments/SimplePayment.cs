@@ -11,7 +11,7 @@ namespace EloPayPal.Adaptive
 		private PayPalReceiver Receiver;
 		public void SetReceiver(PayPalReceiver receiver)
 		{
-			if (receiver.primary != null)
+			if (receiver.Primary != null)
 				throw new InvalidOperationException("A simple payment's receiver must not be primary or secondary, i.e. it has to have primary == null");
 
 			if (Receiver != null)
@@ -20,20 +20,11 @@ namespace EloPayPal.Adaptive
 			Receiver = receiver;
 		}
 
-		protected override object GetRequestObject()
+		protected override IDictionary<string, object> GetRequestObject()
 		{
 			var obj = new Dictionary<string, object>() {
 				{ "actionType", "PAY" },
-				{ "currencyCode", PaymentConfiguration.Currency },
-				{ "receiverList", new { receiver = new[] { Receiver } } },
-				{ "ipnNotificationUrl", PaymentConfiguration.IPNNotificationUrl },
-				{ "returnUrl", PaymentSuccessUrl ?? PaymentConfiguration.PaymentSuccessUrl },
-				{ "cancelUrl", PaymentErrorUrl ?? PaymentConfiguration.PaymentErrorUrl },
-				{ "requestEnvelope", new {
-						errorLanguage = "en_US",
-						detailLevel = "ReturnAll"
-					}
-				}
+				{ "receiverList", new { receiver = new[] { Receiver } } }
 			};
 
 			if (TrackingId != null)
@@ -46,11 +37,13 @@ namespace EloPayPal.Adaptive
 		}
 		
 		public SimplePayment(PayPalConfiguration conf)
+			: base(conf)
 		{
-			this.PaymentConfiguration = conf;
-			this.Phase = PaymentPhase.NothingDone;
 		}
 		
-		public SimplePayment() : this(Configuration.Current) { }
+		public SimplePayment()
+			: base()
+		{
+		}
 	}
 }

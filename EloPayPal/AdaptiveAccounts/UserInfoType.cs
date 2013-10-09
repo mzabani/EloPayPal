@@ -8,9 +8,11 @@ namespace EloPayPal.Adaptive
     public class UserInfoType
     {
         /// <summary>
-        /// The type of account. Allowable values are: Personal – Personal account, Premier – Premier account, Business – Business account.
+        /// The type of account. Allowed values are: Personal – Personal account, Premier – Premier account, Business – Business account.
         /// </summary>
         public string accountType { get; set; }
+
+		public NameType name { get; set; }
 
         /// <summary>
         /// Business name of the PayPal account holder.

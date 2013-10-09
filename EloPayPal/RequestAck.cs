@@ -2,7 +2,7 @@ using System;
 
 namespace EloPayPal
 {
-	public enum InstructionAck {
+	public enum RequestAck {
 		Success, Error
 	};
 }

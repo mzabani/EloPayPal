@@ -33,9 +33,16 @@
     <Reference Include="nunit.framework">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Rounding.cs" />
+    <Compile Include="Sandbox\ElomenoReceiver.cs" />
+    <Compile Include="Sandbox\EloPayPalJsonSerializer.cs" />
+    <Compile Include="Sandbox\PayPalApp.cs" />
+    <Compile Include="Sandbox\ApiCalls.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -43,5 +50,11 @@
       <Project>{FDB71735-0CD5-490F-B069-34101DFAA728}</Project>
       <Name>EloPayPal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sandbox\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

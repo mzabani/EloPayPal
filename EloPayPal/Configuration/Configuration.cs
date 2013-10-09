@@ -30,56 +30,9 @@ namespace EloPayPal
             _currentConfiguration = conf;
         }
 
+		/// <summary>
+		/// Set the Json serializer and deserializer that will be used internally by EloPayPal. This must be set before making any API calls.
+		/// </summary>
 		public static IJsonSerializer JsonSerializer;
-
-		/// <summary>
-		/// Creates a POST HttpWebRequest with all the authentication headers and with <paramref name="data"/> as the to-be-posted content.
-		/// </summary>
-		/// <returns>
-		/// The instantiated request.
-		/// </returns>
-		/// <param name='data'>
-		/// The to-be-posted content.
-		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(string endpointUrl, string data, PayPalConfiguration conf) {
-			HttpWebRequest wr = (HttpWebRequest) WebRequest.Create(endpointUrl);
-
-			wr.Method = "POST";
-			wr.ContentType = "application/x-www-form-urlencoded";
-
-			wr.Headers.Add("X-PAYPAL-SECURITY-USERID", conf.UserId);
-			wr.Headers.Add("X-PAYPAL-SECURITY-PASSWORD", conf.Password);
-			wr.Headers.Add("X-PAYPAL-SECURITY-SIGNATURE", conf.Signature);
-
-			wr.Headers.Add("X-PAYPAL-APPLICATION-ID", conf.ApplicationId);
-
-			wr.Headers.Add("X-PAYPAL-REQUEST-DATA-FORMAT", "JSON");
-			wr.Headers.Add("X-PAYPAL-RESPONSE-DATA-FORMAT", "JSON");
-
-			using (Stream wrContentStream = wr.GetRequestStream())
-			{
-				using (StreamWriter wrContentWriter = new StreamWriter(wrContentStream))
-				{
-					wrContentWriter.Write(data);
-				}
-			}
-
-			return wr;
-		}
-
-		/// <summary>
-		/// Creates a POST HttpWebRequest with all the authentication headers and with a json encoded object <paramref name="jsonData"/>.
-		/// </summary>
-		/// <returns>
-		/// The instantiated request.
-		/// </returns>
-		/// <param name='jsonData'>
-		/// The object to be json encoded that will serve as the request's data.
-		/// </param>
-		public static HttpWebRequest GetBasicHttpRequest(string endpointUrl, object jsonData, PayPalConfiguration conf) {
-			string data = Configuration.JsonSerializer.Serialize(jsonData);
-
-			return GetBasicHttpRequest(endpointUrl, data, conf);
-		}
 	}
 }
